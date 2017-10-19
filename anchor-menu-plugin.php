@@ -55,16 +55,16 @@ if( ! class_exists( 'wp_anchor_link' ) ) {
         public function enqueue_scripts() {
             // jQuery
             if(!wp_script_is('jquery')){
-                wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+                wp_enqueue_script('cdn-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
             } else {
-                wp_dequeue_script('jquery'); // Let's use this version so we don't have problems...
+                wp_dequeue_script('cdn-jquery'); // Let's use this version so we don't have problems...
 
-                wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+                wp_enqueue_script('cdn-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
             }
 
             // Our script
             if(!wp_script_is('anchor-link')){
-                wp_enqueue_script( 'anchor-link', plugins_url('anchor-link.js', __FILE__), ['jquery']);
+                wp_enqueue_script( 'anchor-link', plugins_url('anchor-link.js', __FILE__), ['cdn-jquery']);
             }
         }
     }
